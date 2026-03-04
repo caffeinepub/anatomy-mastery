@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Bricolage Grotesque - Display/Headings */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque[opsz,wdth,wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Outfit - Body */
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Medical Teal + Amber palette */
+    /* Background: crisp white */
+    --background: 0.99 0 0;
+    --foreground: 0.15 0.025 240;
+
+    /* Cards: pure white with subtle warmth */
+    --card: 0.995 0 0;
+    --card-foreground: 0.15 0.025 240;
+
+    /* Popover */
+    --popover: 0.995 0 0;
+    --popover-foreground: 0.15 0.025 240;
+
+    /* Primary: deep teal */
+    --primary: 0.38 0.12 200;
+    --primary-foreground: 0.99 0 0;
+
+    /* Secondary: light teal tint */
+    --secondary: 0.94 0.03 200;
+    --secondary-foreground: 0.28 0.08 200;
+
+    /* Muted: light gray */
+    --muted: 0.96 0.005 220;
+    --muted-foreground: 0.52 0.02 220;
+
+    /* Accent: amber/warm gold for NEET highlights */
+    --accent: 0.94 0.06 85;
+    --accent-foreground: 0.35 0.09 70;
+
+    /* Destructive */
+    --destructive: 0.55 0.22 27;
+    --destructive-foreground: 0.99 0 0;
+
+    /* Border / Input */
+    --border: 0.9 0.015 220;
+    --input: 0.9 0.015 220;
+    --ring: 0.38 0.12 200;
+
+    /* Chart colors */
+    --chart-1: 0.55 0.18 200;
+    --chart-2: 0.65 0.15 170;
+    --chart-3: 0.72 0.14 85;
+    --chart-4: 0.60 0.18 240;
+    --chart-5: 0.45 0.14 200;
+
+    /* Sidebar */
+    --sidebar: 0.12 0.04 220;
+    --sidebar-foreground: 0.92 0.01 220;
+    --sidebar-primary: 0.55 0.18 200;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.22 0.04 220;
+    --sidebar-accent-foreground: 0.92 0.01 220;
+    --sidebar-border: 0.25 0.04 220;
+    --sidebar-ring: 0.55 0.18 200;
+
+    /* Custom tokens */
+    --teal-50: oklch(0.97 0.02 200);
+    --teal-100: oklch(0.93 0.04 200);
+    --teal-200: oklch(0.87 0.07 200);
+    --teal-600: oklch(0.42 0.14 200);
+    --teal-700: oklch(0.34 0.12 200);
+    --teal-800: oklch(0.26 0.09 200);
+    --teal-900: oklch(0.18 0.06 200);
+
+    --amber-50: oklch(0.98 0.03 85);
+    --amber-100: oklch(0.95 0.06 85);
+    --amber-500: oklch(0.78 0.16 82);
+    --amber-600: oklch(0.70 0.17 68);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Outfit", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+
+  .font-body {
+    font-family: "Outfit", sans-serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-teal-gradient {
+    background: linear-gradient(135deg, oklch(0.18 0.06 200), oklch(0.26 0.09 200));
+  }
+
+  .bg-hero-gradient {
+    background: linear-gradient(
+      160deg,
+      oklch(0.14 0.05 220) 0%,
+      oklch(0.22 0.09 200) 50%,
+      oklch(0.18 0.07 185) 100%
+    );
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .neet-highlight {
+    background: var(--amber-50);
+    border-left: 3px solid var(--amber-500);
+    padding: 0.75rem 1rem;
+    border-radius: 0 0.375rem 0.375rem 0;
+  }
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.96 0.005 220);
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.7 0.05 200);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.5 0.1 200);
+}
